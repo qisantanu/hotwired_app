@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :developers
+  resources :developers do
+    member do
+      post :edit
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
