@@ -1,0 +1,15 @@
+<div class='modal-content'>
+<div data-controller='turbomodal' data-action='turbo:submit-end->turbomodal#submitEnd'>
+
+    <h1>New developer</h1>
+
+    <%= render "form", developer: @developer %>
+
+    <br>
+
+    <div>
+      <%= link_to "Back to developers", developers_path %>
+    </div>
+      
+  </div>
+  </div>

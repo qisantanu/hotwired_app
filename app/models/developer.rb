@@ -1,5 +1,5 @@
 class Developer < ApplicationRecord
-  validates_presence_of :first_name, :last_name, :email, :company_name
+  validates_presence_of :first_name, :last_name#, :email, :company_name
 
   def self.prepare_fake_data
     {
