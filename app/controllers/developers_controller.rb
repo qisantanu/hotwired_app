@@ -25,9 +25,24 @@ class DevelopersController < ApplicationController
 
     respond_to do |format|
       if @developer.save
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('new_developer', partial: 'developers/form', 
+                                                 locals: { developer: Developer.new }),
+            turbo_stream.prepend('developers', partial: 'developers/developer', 
+                                               locals: { developer: @developer })
+          ]
+        end
+
         format.html { redirect_to developer_url(@developer), notice: "Developer was successfully created." }
         format.json { render :show, status: :created, location: @developer }
       else
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('new_developer', partial: 'developers/form',
+                                                 locals: { developer: @developer })
+          ]
+        end
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @developer.errors, status: :unprocessable_entity }
       end
@@ -52,6 +67,11 @@ class DevelopersController < ApplicationController
     @developer.destroy
 
     respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove("developer_#{@developer.id}")
+        ]
+      end
       format.html { redirect_to developers_url, notice: "Developer was successfully destroyed." }
       format.json { head :no_content }
     end

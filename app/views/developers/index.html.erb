@@ -1,13 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Developers</h1>
+
+<div id='new_developer'>
+  <%= render partial: 'developers/form', locals: { developer: Developer.new } %>
+</div>
+
 <%= link_to "New developer", new_developer_path %>
 
 <div id="developers">
-  <% @developers.each do |developer| %>
-    <%= render developer %>
-    <p>
-      <%= link_to "Show this developer", developer %>
-    </p>
-  <% end %>
+  <%= render @developers %>
 </div>
