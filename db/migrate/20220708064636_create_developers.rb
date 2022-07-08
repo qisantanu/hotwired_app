@@ -1,5 +1,6 @@
 class CreateDevelopers < ActiveRecord::Migration[7.0]
   def change
+    return
     create_table :developers do |t|
       t.string :first_name
       t.string :last_name
