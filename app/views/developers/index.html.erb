@@ -2,11 +2,15 @@
 
 <h1>Developers</h1>
 
-<div id='new_developer'>
+<%
+=begin%>
+ <div id='new_developer'>
   <%= render partial: 'developers/form', locals: { developer: Developer.new } %>
-</div>
+</div> 
+<%
+=end%>
 
-<%= link_to "New developer", new_developer_path %>
+<%= link_to "New developer", new_developer_path, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
 
 <div id="developers">
   <%= render @developers %>

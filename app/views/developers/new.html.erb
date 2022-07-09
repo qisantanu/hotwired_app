@@ -1,9 +1,3 @@
-<h1>New developer</h1>
-
-<%= render "form", developer: @developer %>
-
-<br>
-
-<div>
-  <%= link_to "Back to developers", developers_path %>
-</div>
+<%= turbo_frame_tag :modal do %>
+  <%= render "new", developer: @developer %>
+<% end %>
