@@ -10,7 +10,7 @@
 <%
 =end%>
 
-<%= link_to "New developer", new_developer_path, data: { turbo_frame: 'modal' } %>
+<%= link_to "New developer", new_developer_path, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
 
 <div id="developers">
   <%= render @developers %>

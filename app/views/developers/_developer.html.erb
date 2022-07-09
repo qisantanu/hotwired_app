@@ -38,6 +38,6 @@
 
 <p>
   <%= link_to "Show this developer", developer %>
-  <%= button_to "Edit this developer", edit_developer_path(developer), method: :post %>
+  <%= button_to "Edit this developer", edit_developer_path(developer), method: :post, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
   <%= button_to "Destroy this developer", developer, method: :delete %>
 </p>

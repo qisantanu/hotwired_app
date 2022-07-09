@@ -17,14 +17,7 @@ class DevelopersController < ApplicationController
 
   # GET /developers/1/edit
   def edit
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.update('new_developer', partial: 'developers/form',
-                                               locals: { developer: @developer })
-        ]
-      end
-    end
+
   end
 
   # POST /developers or /developers.json
@@ -35,8 +28,6 @@ class DevelopersController < ApplicationController
       if @developer.save
         format.turbo_stream do
           render turbo_stream: [
-            # turbo_stream.update('new_developer', partial: 'developers/form', 
-            #                                      locals: { developer: Developer.new }),
             turbo_stream.prepend('developers', partial: 'developers/developer',
                                                locals: { developer: @developer })
           ]
@@ -47,8 +38,6 @@ class DevelopersController < ApplicationController
       else
         format.turbo_stream do
           render turbo_stream: [
-            # turbo_stream.update('new_developer', partial: 'developers/form',
-            #                                      locals: { developer: @developer })
             turbo_stream.update('modal', partial: 'developers/new',
                                          locals: { developer: @developer })
           ]
