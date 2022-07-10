@@ -14,8 +14,11 @@
  *= require_self
  */
 
+body {
+  display: block;
+}
 
- #modal {
+#modal {
   display: none; /*Hidden by default*/
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -39,4 +42,34 @@
 
 form input, form textarea {
   width: 100%;
+}
+
+#developers  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.new-developer {
+  margin: 0 20px;
+}
+
+#developers td.name-email {
+  width: 10%;
+}
+
+#developers td.address {
+  width: 30%;
+}
+
+#developers td.action {
+  width: 30%;
+}
+
+table .td-actions, table .button_to {
+  display: inline-block;
+  margin-right: 10px
 }

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :developers do
     member do
-      post :edit
+      post :edit, :show
     end
   end
 
