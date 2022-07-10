@@ -15,10 +15,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_064636) do
   enable_extension "plpgsql"
 
   create_table "developers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "company_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "company_name", null: false
     t.text "address"
     t.text "description"
     t.date "dob"

@@ -1,11 +1,10 @@
 class CreateDevelopers < ActiveRecord::Migration[7.0]
   def change
-    return
     create_table :developers do |t|
-      t.string :first_name
-      t.string :last_name
-      t.string :email
-      t.string :company_name
+      t.string :first_name, null: false
+      t.string :last_name, null: false
+      t.string :email, null: false
+      t.string :company_name, null: false
       t.text :address
       t.text :description
       t.date :dob
