@@ -56,7 +56,7 @@ class DevelopersController < ApplicationController
           render turbo_stream: [
             turbo_stream.update('new_developer', partial: 'developers/form',
                                                  locals: { developer: Developer.new }),
-            turbo_stream.update("developer_#{@developer.id}", partial: 'developers/developer',
+            turbo_stream.replace("developer_#{@developer.id}", partial: 'developers/developer',
                                                               locals: { developer: @developer })
           ]
         end

@@ -1,43 +1,15 @@
-<div id="<%= dom_id developer %>">
-  <p>
-    <strong>First name:</strong>
-    <%= developer.first_name %>
-  </p>
+<tr id="<%= dom_id developer %>">
+  <td class="name-email"><%= developer.first_name %></td>
+  <td class="name-email"><%= developer.last_name %></td>
+  <td class="name-email"><%= developer.email %></td>
+  <td class="name-email"><%= developer.company_name %></td>
+  <td class="address"><%= developer.address %></td>
+  <td  class="action">
+    <%= link_to "Show this developer", developer, method: :post, class: 'td-actions' %>
+    <%= button_to "Edit", edit_developer_path(developer), method: :post, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
+    <%= button_to "Destroy", developer, confirm: 'Are you sure?', method: :delete %>
+  </td>
+</tr>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= developer.last_name %>
-  </p>
-  
-  <p>
-    <strong>Email:</strong>
-    <%= developer.email %>
-  </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= developer.company_name %>
-  </p>
 
-  <p>
-    <strong>About him/her:</strong>
-    <%= developer.description %>
-  </p>
-  
-  <p>
-    <strong>Address:</strong>
-    <%= developer.address %>
-  </p>
-
-  <p>
-    <strong>Dob:</strong>
-    <%= developer.dob %>
-  </p>
-
-</div>
-
-<p>
-  <%= link_to "Show this developer", developer %>
-  <%= button_to "Edit this developer", edit_developer_path(developer), method: :post, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
-  <%= button_to "Destroy this developer", developer, method: :delete %>
-</p>

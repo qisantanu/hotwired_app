@@ -9,9 +9,22 @@
 </div> 
 <%
 =end%>
+<%= link_to "New developer", new_developer_path, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' }, class: 'new-developer' %>
 
-<%= link_to "New developer", new_developer_path, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
 
 <div id="developers">
-  <%= render @developers %>
+  <table>
+    <thead>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th>Address</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <%= render @developers %>    
+    </tbody>
+  </table>
+  
 </div>
