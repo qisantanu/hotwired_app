@@ -28,8 +28,8 @@ class DevelopersController < ApplicationController
       if @developer.save
         format.turbo_stream do
           render turbo_stream: [
-            turbo_stream.prepend('developers', partial: 'developers/developer',
-                                               locals: { developer: @developer })
+            turbo_stream.prepend('developer_tbody', partial: 'developers/developer',
+                                                    locals: { developer: @developer })
           ]
         end
 

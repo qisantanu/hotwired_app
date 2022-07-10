@@ -1,5 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<%= turbo_frame_tag :modal do %>
+  <div class='modal-content'>
+    <article>
+      <h2>Details of <%= @developer.first_name %></h2>
+      <p>
+        First name: <%= @developer.first_name %>
+      </p>
+      <p>
+        Last name: <%= @developer.last_name %>
+      </p>
+      <p>
+        Email: <%= @developer.email %>
+      </p>
+      <p>
+        Date of birth: <%= @developer.dob %>
+      </p>
+      
+      <p>
+        Company: <%= @developer.company_name %>
+      </p>
 
-<p>
-  <%= @developer.first_name %>
-</p>
+      <aside>
+        <p>Address: <%= @developer.address %></p>
+      </aside>
+
+      <section>
+        <p>About him/her: <%= @developer.description %></p>
+      </section>
+    </article>
+    <div>
+      <%= link_to "Back to developers", "#", data: { controller: 'turbomodal', action: 'click->turbomodal#closeModal' } %>
+    </div>
+  </div>
+<% end %>

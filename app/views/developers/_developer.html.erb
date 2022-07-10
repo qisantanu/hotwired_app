@@ -5,7 +5,7 @@
   <td class="name-email"><%= developer.company_name %></td>
   <td class="address"><%= developer.address %></td>
   <td  class="action">
-    <%= link_to "Show this developer", developer, method: :post, class: 'td-actions' %>
+    <%= button_to "Show this developer", developer_path(developer), method: :post, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
     <%= button_to "Edit", edit_developer_path(developer), method: :post, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' } %>
     <%= button_to "Destroy", developer, confirm: 'Are you sure?', method: :delete %>
   </td>
