@@ -1,0 +1,4 @@
+<% if current_user %>
+  
+  <%= button_to "Logout", signout_path, confirm: 'Are you sure?', method: :delete %>
+<% end %>
