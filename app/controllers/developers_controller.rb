@@ -3,13 +3,14 @@ class DevelopersController < ApplicationController
   before_action :set_developer, only: %i[ show edit update destroy ]
 
   # GET /developers or /developers.json
-  def index
+  def index; end
+
+  def lists
     @developers = Developer.order('id desc')
   end
 
   # GET /developers/1 or /developers/1.json
-  def show
-  end
+  def show; end
 
   # GET /developers/new
   def new
@@ -17,9 +18,7 @@ class DevelopersController < ApplicationController
   end
 
   # GET /developers/1/edit
-  def edit
-
-  end
+  def edit; end
 
   # POST /developers or /developers.json
   def create

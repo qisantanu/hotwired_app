@@ -2,29 +2,8 @@
 
 <h1>Developers</h1>
 
-<%
-=begin%>
- <div id='new_developer'>
-  <%= render partial: 'developers/form', locals: { developer: Developer.new } %>
-</div> 
-<%
-=end%>
 <%= link_to "New developer", new_developer_path, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' }, class: 'new-developer' %>
 
-
-<div id="developers">
-  <table>
-    <thead>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Company</th>
-      <th>Address</th>
-      <th>Action</th>
-    </thead>
-    <tbody id='developer_tbody'>
-      <%= render @developers %>    
-    </tbody>
-  </table>
-  
-</div>
+<%= turbo_frame_tag :developers, src: lists_developers_path, loading: :lazy do %>
+  Loading...
+<% end %>

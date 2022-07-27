@@ -1,0 +1,17 @@
+<%= turbo_frame_tag :developers do %>
+  <div id="developers">
+    <table>
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Address</th>
+        <th>Action</th>
+      </thead>
+      <tbody id='developer_tbody'>
+        <%= render @developers %>    
+      </tbody>
+    </table>
+  </div>
+<% end %>
