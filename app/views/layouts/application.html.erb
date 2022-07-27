@@ -14,6 +14,9 @@
   <body>
     <div><%= Time.now %></div>
     <%= turbo_frame_tag :modal %>
-    <%= yield %>
+    <div id='main'>
+      <%= render partial: 'layouts/top_menu' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

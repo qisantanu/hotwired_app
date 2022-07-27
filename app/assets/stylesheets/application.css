@@ -18,6 +18,10 @@ body {
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
 #modal {
   display: none; /*Hidden by default*/
   position: fixed; /* Stay in place */

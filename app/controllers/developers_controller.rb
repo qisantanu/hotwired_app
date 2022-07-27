@@ -1,4 +1,5 @@
 class DevelopersController < ApplicationController
+  before_action :authorize
   before_action :set_developer, only: %i[ show edit update destroy ]
 
   # GET /developers or /developers.json
