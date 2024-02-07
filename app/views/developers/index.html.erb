@@ -4,6 +4,6 @@
 
 <%= link_to "New developer", new_developer_path, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' }, class: 'new-developer' %>
 
-<%= turbo_frame_tag :developers, src: lists_developers_path, loading: :lazy do %>
-  Loading...
+<%= turbo_frame_tag :developers, src: lists_developers_path(format: turbo_stream, page: params[:page]), loading: :lazy do %>
+  <span class='loading'>Loading...</span>
 <% end %>

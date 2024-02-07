@@ -1,4 +1,17 @@
 <%= turbo_frame_tag :developers do %>
+  <div class='flex-container'>
+    <div style="margin-right: 20px">Total developers: <%= @count %></div>
+    <div class="developers-pagination">
+      <%= link_to 'Prev', lists_developers_path(page: @prev_page), data: { turbo_stream: true }, class: 'text-grey-500' if params[:page].to_i > 0 %>
+      <%= link_to 'First', lists_developers_path(page: @first_page), data: { turbo_stream: true }, class: 'text-grey-500' %>
+      <%= form_tag('/developers/lists', method: :get) do %>
+        <%= text_field_tag(:page, params[:page].to_i, class: 'pagination-text') %>
+      <% end %>
+      <%= link_to 'Last', lists_developers_path(page: @last_page), data: { turbo_stream: true }, class: 'text-grey-500' %>
+      <%= link_to 'Next', lists_developers_path(page: @next_page), data: { turbo_stream: true } if @last_page > params[:page].to_i %>
+    </div>
+  </div>
+  
   <div id="developers">
     <table>
       <thead>
@@ -14,4 +27,5 @@
       </tbody>
     </table>
   </div>
+  
 <% end %>
