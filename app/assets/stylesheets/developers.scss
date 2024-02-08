@@ -44,3 +44,39 @@
   display: flex;
   flex-direction: row;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-gap: 20px;
+}
+
+.notifications-grid {
+  ul {
+    padding: 0;
+  }
+
+  li {
+    display: block;
+    font-size: 14px;
+    padding: 1 7px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #e6b3b3;
+
+    p {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .desc {
+      display: block;
+      margin-top: 1px;
+    }
+
+    .time {
+      display: block;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+  }
+}

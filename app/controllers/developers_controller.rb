@@ -15,7 +15,7 @@ class DevelopersController < ApplicationController
     @last_page = (@count/ Developer::PAGINATION).ceil
     @next_page = page + 1
     @prev_page = (page - 1) <= 0 ? 0 : page - 1 
-    @developers = Developer.offset(page * Developer::PAGINATION).limit(Developer::PAGINATION).order('id')
+    @developers = Developer.offset(page * Developer::PAGINATION).limit(Developer::PAGINATION).order('id desc')
   end
 
   # GET /developers/1 or /developers/1.json
