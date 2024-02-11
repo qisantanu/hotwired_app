@@ -56,6 +56,10 @@
     padding: 0;
   }
 
+  .read {
+    background-color: #DBF2DE;
+  }
+
   li {
     display: block;
     font-size: 14px;
@@ -66,6 +70,12 @@
     p {
       margin: 0;
       font-weight: bold;
+
+      span {
+        font-size: 10px;
+        font-weight: lighter;
+        margin: 0 5px auto;
+      }
     }
 
     .desc {

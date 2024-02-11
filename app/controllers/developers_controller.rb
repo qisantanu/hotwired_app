@@ -3,11 +3,11 @@ class DevelopersController < ApplicationController
   before_action :set_developer, only: %i[ show edit update destroy ]
 
   # GET /developers or /developers.json
-  def index; end
+  def index 
+    @notifications = Notification.order('id desc')
+  end
 
   def lists
-    #@pagy, @developers = pagy(Developer.order('created_at desc'), items: 10)
-    #sleep 2
     page = params[:page].to_i
     @count = Developer.count
     @first_page = 0
