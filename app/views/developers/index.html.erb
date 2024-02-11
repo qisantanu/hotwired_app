@@ -14,8 +14,6 @@
 
   <div class='grid-child notifications-grid'>
     <h4>Notifications</h4>
-    <%= turbo_frame_tag :notifications, src: notifications_path(format: turbo_stream), loading: :lazy do %>
-      <span class='loading'>Loading...</span>
-    <% end %>
+    <%= render 'notifications/lists', collection: @notifications %>
   </div>
 </div>

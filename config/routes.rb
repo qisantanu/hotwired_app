@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index] do
+    collection do
+      get :lists
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
