@@ -12,8 +12,14 @@
   </head>
 
   <body>
-    <div><%= Time.now %></div>
     <%= turbo_frame_tag :modal %>
+
+    <div class='time-section'>
+      <div class='time' data-controller="time" data-content-loader-refresh-interval-value='5000'>
+        <%= Time.now.strftime('%F %T') %>
+      </div>
+    </div>
+
     <div id='main'>
       <%= render partial: 'layouts/top_menu' %>
       <%= yield %>

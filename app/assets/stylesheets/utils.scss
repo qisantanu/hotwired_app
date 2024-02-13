@@ -47,3 +47,17 @@ table .td-actions, table .button_to {
     width: 100%;
     z-index: 9999999;
 }
+
+.time-section {
+  display: flex;
+  
+  .time {
+    background-color: blue;
+    box-shadow: -5px 6px rgba(193, 193, 242, 0.999);
+    color: #fefefe;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: auto;
+    margin-top: 10px
+  }
+}

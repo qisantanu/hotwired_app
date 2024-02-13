@@ -1,9 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Developers</h1>
+<div>
 
+</div>
 <div class="grid-container">
-
   <div class='grid-child tables'>
     <%= link_to "New developer", new_developer_path, data: { controller: 'turbomodal', turbo_frame: 'modal', action: 'click->turbomodal#showModal' }, class: 'new-developer' %>
 
@@ -14,6 +15,17 @@
 
   <div class='grid-child notifications-grid'>
     <h4>Notifications</h4>
+    
+    <%= turbo_frame_tag 'search_form' do %>
+      <div data-controller="notifications">
+        <%= form_tag(lists_notifications_path, method: :get) do %>
+          <%= text_field_tag :search_notification, '', placeholder: 'Search for notifications', 
+            data: { turbo_stream: true, action: 'input->notifications#search', target: 'notifications.params' } %>
+        <% end %>
+      </div>
+    <!--- End of turbo_frame_tag for search form -->
+    <% end %>
+    
     <%= render 'notifications/lists', collection: @notifications %>
   </div>
 </div>
