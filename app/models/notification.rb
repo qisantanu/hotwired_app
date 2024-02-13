@@ -39,17 +39,11 @@ class Notification < ApplicationRecord
 
   def self.fake_notification_stream
     Notification.fake_notification
-    sleep 3
     Notification.fake_notification
-    sleep 2
     Notification.second.update(status: STATUS[:read])
-    sleep 2
     Notification.first.destroy
-    sleep 2
     Notification.last.destroy
-    sleep 1
     Notification.first.update(status: STATUS[:read])
-    sleep 1
     Notification.fake_notification
     Notification.last.update(status: STATUS[:read])
   end

@@ -1,8 +1,7 @@
+<%= turbo_stream_from 'notifications' %>
+
 <ul class='notifications-ul'>
-  <%= turbo_stream_from 'notifications' %>
-
   <%= turbo_frame_tag :notifications do %>
-      <%= render partial: 'notifications/notification', collection: @notifications %>      
+    <%= render partial: 'notifications/notification', collection: @notifications %>
   <% end %>
-
 </ul>
