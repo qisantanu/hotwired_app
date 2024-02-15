@@ -10,7 +10,7 @@ export default class extends Controller {
   static targets = ['params'];
 
   connect() {
-    console.log('Hello from notifications')
+    
   }
 
   // Actions 

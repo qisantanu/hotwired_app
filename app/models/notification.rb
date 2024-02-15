@@ -13,7 +13,6 @@ class Notification < ApplicationRecord
 
   # this is mainly for the notification bar in the right panel
   after_create_commit do
-    sleep 2
     broadcast_prepend_to('notifications',
                           partial: 'notifications/notification',
                           target: 'notifications',
@@ -54,6 +53,11 @@ class Notification < ApplicationRecord
     Notification.last.update(status: STATUS[:read])
   end
 
+  def self.bulk_create_for_testing
+    50.times do |_|
+      Notification.fake_notification
+    end
+  end
 
   def self.fake_notification
     Notification.create(title: Faker::ProgrammingLanguage.name, description: Faker::Markdown.emphasis)

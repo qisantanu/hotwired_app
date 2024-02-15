@@ -1,6 +1,7 @@
 <%= turbo_stream_from 'notifications' %>
 
-<ul class='notifications-ul'>
+<ul class='notifications-ul' data-controller='pagination' >
+
   <%= turbo_frame_tag :notifications do %>
     <%= render partial: 'notifications/notification', collection: @notifications %>    
   <% end %>
