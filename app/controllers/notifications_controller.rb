@@ -25,15 +25,22 @@ class NotificationsController < ApplicationController
     @notifications = notifications.order('id desc')
 
     if params[:load].present?
-      page = params[:page].to_i + 1
-      @notifications = @notifications.offset(page * Notification::PAGINATION)
-                                     .limit(Notification::PAGINATION)
+      @current_page = params[:page].to_i + 1
+      page_limit = Notification::PAGINATION
+      @notifications = @notifications.offset(@current_page * page_limit)
+                                     .limit(page_limit)
 
+      if (Notification.all.count > page_limit * @current_page + page_limit)
+        @next_page = @current_page + 1
+      end
       # this will target the notifications id within the
       # turbo_frame_tag :notifications do in the _lists partial
+      # here we will try to change from the turbo.erb file.
+
       render turbo_stream: [
-        turbo_stream.append('notifications', partial: 'notifications/notification', collection: @notifications)
-      ]
+        turbo_stream.append('notifications', partial: 'notifications/notification', collection: @notifications),
+        turbo_stream.replace('load_more', partial: '_load_more', local: { page: @next_page })
+      ] and return
 
     else
       # this will target the notifications id within the

@@ -1,4 +1,13 @@
-<% "This is not in use" %>
-<% turbo_stream.update 'notifications' do %>
-    <% render partial: 'notifications/notification', collection: @notifications %>
+<%= turbo_stream.append "notifications" do %>
+  <%= render partial: 'notifications/notification', collection: @notifications %>
+<% end %>
+
+<% if @next_page.present? %>
+  <%= turbo_stream.replace "load_more" do %>
+    <div class='load-notification'>
+      <%= link_to 'load more...', lists_notifications_path(load: true, page: @next_page.to_i), 
+          data: { turbo_stream: true } %>
+    </div>
+  <% end %>
+ <% end %>
 <% end %>

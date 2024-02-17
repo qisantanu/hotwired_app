@@ -12,8 +12,7 @@
     So from the controller, we can determine the next set of notifications
     and append in the list to the above turbo_frame_tag with 'notifications' id.
   -->
-  <div class='load-notification'>
-    <%= link_to 'load more...', lists_notifications_path(load: true), 
-        data: { turbo_stream: true } %>
-  </div>
+  <%= turbo_frame_tag :load_more do %>
+    <%= render partial: 'notifications/load_more', page: params[:page].to_i %>
+  <% end %>
 </ul>
