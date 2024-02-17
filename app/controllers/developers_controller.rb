@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+#
+# Handle the developers related request over here
+# The index action will be used as the root page for this
+#
 class DevelopersController < ApplicationController
   before_action :authorize
   before_action :set_developer, only: %i[show edit update destroy]

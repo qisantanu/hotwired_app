@@ -5,7 +5,7 @@ class Developer < ApplicationRecord
   validates_presence_of :first_name, :last_name, :email, :company_name
 
   # @return [Integer] define the per page count
-  PAGINATION = 15
+  PAGINATION = 15.freeze
 
   #
   # Prepare a fake developer data before save
@@ -27,14 +27,14 @@ class Developer < ApplicationRecord
   #
   # Save the fake developer in the database
   #
-  # @param [Integer] n number of developers created
+  # @param [Integer] num number of developers created
   #
   # @return [nil]
   #
-  def self.insert_fake_data(n = 10)
+  def self.insert_fake_data(num = 10)
     attrs_arr = []
 
-    1.upto(n) do |i|
+    1.upto(num) do |_|
       attrs_arr << Developer.prepare_fake_data
     end
 
