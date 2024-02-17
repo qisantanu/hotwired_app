@@ -1,10 +1,16 @@
 class Notification < ApplicationRecord
   validates_presence_of :title, :description
 
+  # probable status of a notification
   STATUS = {
     unread: 0,
     read: 1
   }.freeze
+
+
+  # @return [Integer] define the per page count
+  PAGINATION = 3
+
   # this is mainly for the notification bar in the right panel
   after_create_commit do
     sleep 2
