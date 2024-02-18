@@ -16,6 +16,7 @@
   <div class='grid-child notifications-grid'>
     <h4>Notifications</h4>
     
+    <!--- Start of turbo_frame_tag for search form notification -->
     <%= turbo_frame_tag 'search_form' do %>
       <div data-controller="notifications">
         <%= form_tag(lists_notifications_path, method: :get) do %>
@@ -23,9 +24,10 @@
             data: { turbo_stream: true, action: 'input->notifications#search', target: 'notifications.params' } %>
         <% end %>
       </div>
-    <!--- End of turbo_frame_tag for search form -->
     <% end %>
-    
+    <!--- End of turbo_frame_tag for search form -->
+
+    <!-- List of notifications partial -->
     <%= render 'notifications/lists', collection: @notifications %>
   </div>
 </div>

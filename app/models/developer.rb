@@ -1,7 +1,17 @@
+# frozen_string_literal: true
+
+# Store the developers information and handle operations
 class Developer < ApplicationRecord
   validates_presence_of :first_name, :last_name, :email, :company_name
-  PAGINATION = 15
 
+  # @return [Integer] define the per page count
+  PAGINATION = 15.freeze
+
+  #
+  # Prepare a fake developer data before save
+  #
+  # @return [Hash]
+  #
   def self.prepare_fake_data
     {
       first_name: Faker::Name.first_name,
@@ -14,10 +24,17 @@ class Developer < ApplicationRecord
     }
   end
 
-  def self.insert_fake_data(n = 10)
+  #
+  # Save the fake developer in the database
+  #
+  # @param [Integer] num number of developers created
+  #
+  # @return [nil]
+  #
+  def self.insert_fake_data(num = 10)
     attrs_arr = []
 
-    1.upto(n) do |i|
+    1.upto(num) do |_|
       attrs_arr << Developer.prepare_fake_data
     end
 

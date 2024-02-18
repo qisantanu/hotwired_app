@@ -2,6 +2,17 @@
 
 <ul class='notifications-ul'>
   <%= turbo_frame_tag :notifications do %>
-    <%= render partial: 'notifications/notification', collection: @notifications %>
+    <%= render partial: 'notifications/notification', collection: @notifications %>    
+  <% end %>
+
+  <!-- Load more link to show more notifications.
+    here we added a extra parameter to identify in the controller end,
+    that the request is coming from this link.
+    The data turbo stream in the link as set as true.
+    So from the controller, we can determine the next set of notifications
+    and append in the list to the above turbo_frame_tag with 'notifications' id.
+  -->
+  <%= turbo_frame_tag :load_more do %>
+    <%= render partial: 'notifications/load_more', locals: {page: params[:page].to_i} %>
   <% end %>
 </ul>

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/welcome_readme.jpg" alt="ERP2 Logo" width="150"/>
+  <img src="public/welcome_readme.jpg" alt="Hotwire Logo" width="150"/>
 </p>
 
 # Hotwired Application

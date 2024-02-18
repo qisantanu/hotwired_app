@@ -1,0 +1,7 @@
+<div class='load-notification'>
+  <% if page.present? %>
+    <%= link_to 'load more...', 
+        lists_notifications_path(load: true, page: page.to_i), 
+        data: { turbo_stream: true } %>
+  <% end %>
+</div>
