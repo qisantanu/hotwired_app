@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.34
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><p align="center">
+  <img src="public/welcome_readme.jpg" alt="Hotwire Logo" width="150"/>
+</p>
+<h1 id="label-Hotwired+Application">Hotwired Application</h1>
+
+<p>This is a Rails application to play with different features of HTML Over the Wire.</p>
+<ul><li>
+<p><a href="#hotwired-application">Hotwired Application</a></p>
+</li><li>
+<p><a href="#pre-requisites">Pre-requisites</a></p>
+<ul><li>
+<p><a href="#setup">Setup</a></p>
+</li></ul>
+</li><li>
+<p><a href="#additional-informations">Additional informations</a></p>
+<ul><li>
+<p><a href="#for-creating-modal-controller-the-command-used">for creating modal controller the command used</a></p>
+</li><li>
+<p><a href="#for-creating-the-fake-data">For creating the fake data</a></p>
+</li></ul>
+</li></ul>
+
+<h2 id="label-Pre-requisites">Pre-requisites</h2>
+
+<p>The following software is required to work with the repository. This project currently works with:</p>
+
+<p><img src="https://img.shields.io/static/v1?label=JRuby&amp;message=3.2.2&amp;color=red&amp;&amp;style=for-the-badge"> <img src="https://img.shields.io/static/v1?label=Rails&amp;message=7.1.3&amp;color=9C312A&amp;&amp;style=for-the-badge"> <img src="https://img.shields.io/static/v1?label=Bundler&amp;message=2.3.4&amp;color=f77b07&amp;&amp;style=for-the-badge"> <img src="https://img.shields.io/static/v1?label=Postgres&amp;message=16&amp;color=green&amp;style=for-the-badge"></p>
+
+<h3 id="label-Setup">Setup</h3>
+<ol><li>
+<p>bundle install</p>
+</li><li>
+<p>rails importmap:install</p>
+</li><li>
+<p>rails turbo:install stimulus:install</p>
+</li><li>
+<p>rails db:create; db:seed</p>
+</li><li>
+<p>Open rails console and run <code>Developer.insert_fake_data 20</code></p>
+</li></ol>
+
+<h2 id="label-Additional+informations">Additional informations</h2>
+
+<h3 id="label-for+creating+modal+controller+the+command+used">for creating modal controller the command used</h3>
+
+<p><code>rails g stimulus turbomodal</code></p>
+
+<p>The controller nme of timulus should be a word like ‘notification’, ‘pagination’ I have tried with ‘notification_scroll’ which is not working, may be the snake case is not valid.</p>
+
+<h3 id="label-For+creating+the+fake+data">For creating the fake data</h3>
+<ol><li>
+<p><code>Developer.insert_fake_data</code></p>
+</li><li>
+<p><code>Notification.bulk_create_for_testing</code></p>
+</li><li>
+<p><code>Notification.fake_notification_stream</code></p>
+</li></ol>
+</div></div>
+
+      <div id="footer">
+  Generated on Sun Feb 18 15:43:50 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.2.2).
+</div>
+
+    </div>
+  </body>
+</html>
