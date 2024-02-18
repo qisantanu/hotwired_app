@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="class_list.html?1"></iframe>
+      <iframe id="nav" src="file_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -76,6 +76,12 @@
 <p><a href="#for-creating-modal-controller-the-command-used">for creating modal controller the command used</a></p>
 </li><li>
 <p><a href="#for-creating-the-fake-data">For creating the fake data</a></p>
+</li><li>
+<p><a href="#in-code-documentation-with-yard">In-Code Documentation with Yard</a></p>
+</li><li>
+<p><a href="#setting-up-yard">Setting Up Yard</a></p>
+</li><li>
+<p><a href="#additional-yard-configuration">Additional Yard Configuration</a></p>
 </li></ul>
 </li></ul>
 
@@ -114,10 +120,29 @@
 </li><li>
 <p><code>Notification.fake_notification_stream</code></p>
 </li></ol>
+
+<h3 id="label-In-Code+Documentation+with+Yard">In-Code Documentation with Yard</h3>
+
+<p>This project utilizes <a href="https://yardoc.org/">Yard</a> for in-code documentation. Yard is a documentation generation tool for Ruby that provides a clean and consistent way to document your code.</p>
+
+<h4 id="label-Setting+Up+Yard">Setting Up Yard</h4>
+
+<p>To generate and view the documentation locally, follow these steps:</p>
+<ol><li>
+<p><strong>Install Yard</strong>: It is part of the Gemfile in the development environment, after the <code>bundle install</code>, it is ready to be used.</p>
+</li><li>
+<p><strong>Generate Documentation</strong>: Run the following command to generate documentation for your project: <code>yar -o docs</code> This will create a <code>docs</code> directory with the generated documentation.</p>
+</li><li>
+<p><strong>View Documentation Locally</strong>: - Open the <code>doc/index.html</code> file in your browser to browse the documentation. Or you can start the Yard server locally and access the documents.</p>
+</li></ol>
+
+<h4 id="label-Additional+Yard+Configuration">Additional Yard Configuration</h4>
+
+<p>You can customize Yard’s behavior by adding a <code>.yardopts</code> file in the root of your project. This file can contain various options and flags to control the documentation generation process. Refer to the <a href="https://yardoc.org/docs/yard/file-format.html">Yard documentation</a> for more details.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sun Feb 18 15:43:50 2024 by
+  Generated on Sun Feb 18 15:54:40 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.2.2).
 </div>
