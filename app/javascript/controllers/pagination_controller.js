@@ -77,6 +77,7 @@ export default class extends Controller {
    */
   get #clickLoadMore() {
     document. getElementsByClassName("load-notification")[0].children[0].click();
+    document. getElementsByClassName("load-notification")[0].innerHTML = 'Loading...';
   }
 
   /**
@@ -122,6 +123,6 @@ export default class extends Controller {
   get #isItPageEnd() {
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
     console.log(scrollHeight - scrollTop - clientHeight);
-    return scrollHeight - scrollTop - clientHeight < 40;
+    return scrollHeight - scrollTop - clientHeight < 50;
   }
 }

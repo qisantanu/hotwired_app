@@ -18,7 +18,7 @@ class DevelopersController < ApplicationController
 
   # GET /developers/lists
   def lists
-    sleep 2
+    sleep 1
     page = params[:page].to_i
     @count = Developer.count
     @first_page = 0

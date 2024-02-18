@@ -9,7 +9,7 @@ class Notification < ApplicationRecord
 
 
   # @return [Integer] define the per page count
-  PAGINATION = 10
+  PAGINATION = 5
 
   # this is mainly for the notification bar in the right panel
   after_create_commit do
