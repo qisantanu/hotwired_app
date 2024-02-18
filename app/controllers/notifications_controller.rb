@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Style/IfUnlessModifier
+# rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Style/ParenthesesAroundCondition, Style/IfUnlessModifier
 
 #
 # Controller to handle the notifications related requests
@@ -27,21 +27,37 @@ class NotificationsController < ApplicationController
   #   - If pagination is enabled, also updates the load more link.
   def lists
     notifications = Notification.all
-    notifications = notifications.where('title ilike ?', "%#{params[:search_notification]}%") if params[:search_notification].present?
-    page = params[:page].to_i || 1
+    if params[:search_notification].present?
+      notifications = notifications.where('title ilike ?',
+                                          "%#{params[:search_notification]}%")
+    end
 
-    @notifications = notifications.limit(page * Notification::PAGINATION)
     @notifications = notifications.order('id desc')
 
-    if params[:append].present?
-      Rails.logger.info('coming from JS')
+    if params[:load].present?
+      sleep 2
+      @current_page = params[:page].to_i + 1
+      page_limit = Notification::PAGINATION
+
+      if (Notification.all.count > page_limit * @current_page + page_limit)
+        @next_page = @current_page + 1
+      end
+
+      @notifications = @notifications.offset((@next_page.presence || @current_page) * page_limit)
+                                     .limit(page_limit)
+
+      # @note This will target the notifications id within the
+      #   turbo_frame_tag :notifications do in the _lists partial
+      #   here we are also trying to update the load more link which we kept under the turbo frame
+
       render turbo_stream: [
-        turbo_stream.update('notifications', partial: 'notifications/notification', collection: @notifications)
-      ]
+        turbo_stream.append('notifications', partial: 'notifications/notification', collection: @notifications),
+        turbo_stream.update('load_more', partial: 'notifications/load_more', locals: { page: @next_page })
+      ] and return
 
     else
-      # this will target the notifications id within the
-      # turbo_frame_tag :notifications do in the _lists partial
+      # @note This will target the notifications id within the
+      #   turbo_frame_tag :notifications do in the _lists partial
       render turbo_stream: [
         turbo_stream.update('notifications', partial: 'notifications/notification', collection: @notifications)
       ]

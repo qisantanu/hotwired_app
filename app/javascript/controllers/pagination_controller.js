@@ -65,8 +65,18 @@ export default class extends Controller {
       // Add the spinner at the end of the page.
       //this.postsTarget.insertAdjacentHTML("beforeend", spinner);
 
-      this.#getData();
+      this.#clickLoadMore();
     }
+  }
+
+  /**
+   * Click the load more link to trigger it's related action
+   * @memberof PaginationController
+   * @instance
+   * @private
+   */
+  get #clickLoadMore() {
+    document. getElementsByClassName("load-notification")[0].children[0].click();
   }
 
   /**
