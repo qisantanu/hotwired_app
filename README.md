@@ -8,6 +8,8 @@ This is a Rails application to play with different features of HTML Over the Wir
 - [Hotwired Application](#hotwired-application)
   - [Pre-requisites](#pre-requisites)
     - [Setup](#setup)
+  - [Importmap setup](#importmap-setup)
+    - [Example: Add jQuery to the application](#example-add-jquery-to-the-application)
   - [Additional informations](#additional-informations)
     - [for creating modal controller the command used](#for-creating-modal-controller-the-command-used)
     - [For creating the fake data](#for-creating-the-fake-data)
@@ -32,6 +34,21 @@ This project currently works with:
 3. rails turbo:install stimulus:install
 4. rails db:create; db:seed
 5. Open rails console and run `Developer.insert_fake_data 20`
+
+## Importmap setup
+### Example: Add jQuery to the application
+1. First we need to create ImportMap for jQuery
+2. Run `bin/importmap pin jquery`
+3. This adds the jQuery library and its dependencies to the `config/importmap.rb` file. Note that we’re using a CDN location for the jQuery library, which grants access to the entire NPM catalog via Import Maps without requiring Node.js for package compilation.
+4. Now to add JQuery: 
+   ```bash
+     import jQuery from "jquery";
+     jQuery('body').css('background-color', '#f2f2f2');
+     // This is how the jQuery works
+     // You need to import like above
+     // And then use that instead of '$'
+   ```
+5. You will get some idea in : https://github.com/qisantanu/hotwired_app/pull/24/files
 
 ## Additional informations
 
