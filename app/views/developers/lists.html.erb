@@ -2,13 +2,15 @@
   <div class='flex-container'>
     <div style="margin-right: 20px">Total developers: <%= @count %></div>
     <div class="developers-pagination">
-      <%= link_to 'Prev', lists_developers_path(page: @prev_page), data: { turbo_stream: true }, class: 'text-grey-500' if params[:page].to_i > 0 %>
+      
+      <%= developer_pagination_prev_link(page_number: @prev_page) %>
       <%= link_to 'First', lists_developers_path(page: @first_page), data: { turbo_stream: true }, class: 'text-grey-500' %>
       <%= form_tag('/developers/lists', method: :get) do %>
         <%= text_field_tag(:page, params[:page].to_i, class: 'pagination-text') %>
       <% end %>
       <%= link_to 'Last', lists_developers_path(page: @last_page), data: { turbo_stream: true }, class: 'text-grey-500' %>
-      <%= link_to 'Next', lists_developers_path(page: @next_page), data: { turbo_stream: true } if @last_page > params[:page].to_i %>
+      
+      <%= developer_pagination_link(page_number: @next_page, last_page: @last_page) %>
     </div>
   </div>
   
@@ -17,7 +19,12 @@
       <thead>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Email</th>
+        <th>
+          <%= link_to lists_developers_path(sort_email: params[:sort_email].to_s == 'desc' ? 'asc' : 'desc'), 
+              data: { turbo_stream: true }  do %>
+              Email <i class="fa fa-sort sort-email"></i>
+          <% end %>
+        </th>
         <th>Company</th>
         <th>Address</th>
         <th>Action</th>

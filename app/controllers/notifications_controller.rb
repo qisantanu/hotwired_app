@@ -49,14 +49,19 @@ class NotificationsController < ApplicationController
       #   turbo_frame_tag :notifications do in the _lists partial
       #   here we are also trying to update the load more link which we kept under the turbo frame
 
-      render turbo_stream: [
-        turbo_stream.append('notifications', partial: 'notifications/notification', collection: @notifications),
-        turbo_stream.update('load_more', partial: 'notifications/load_more', locals: { page: @next_page })
-      ] and return
-
+      # @note turbo_stream generally renders with POST
+      respond_to do |format|
+        format.html
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.append('notifications', partial: 'notifications/notification', collection: @notifications),
+            turbo_stream.update('load_more', partial: 'notifications/load_more', locals: { page: @next_page })
+          ] and return    
+        end # POST
+      end
     else
       # @note This will target the notifications id within the
-      #   turbo_frame_tag :notifications do in the _lists partial
+      Rails.logger.info(" else request headers ===> #{request.format}")
       render turbo_stream: [
         turbo_stream.update('notifications', partial: 'notifications/notification', collection: @notifications)
       ]

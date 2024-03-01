@@ -5,7 +5,7 @@ class Developer < ApplicationRecord
   validates_presence_of :first_name, :last_name, :email, :company_name
 
   # @return [Integer] define the per page count
-  PAGINATION = 15.freeze
+  PAGINATION = 10.freeze
 
   #
   # Prepare a fake developer data before save
