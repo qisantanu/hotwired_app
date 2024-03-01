@@ -5,6 +5,7 @@
 
 import { Controller } from "@hotwired/stimulus"
 import $ from "jquery";
+import Rails from '@rails/ujs';
 
 // Connects to data-controller="pagination"
 export default class extends Controller {
@@ -82,6 +83,16 @@ export default class extends Controller {
       // .then(res => {
       //   console.log('fetch last block', res);
       // })
+
+      Rails.ajax({
+        type: 'GET',
+        url: loadMoreURL,
+        dataType: 'json',
+        success: (data) => {
+          this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
+          this.paginationTarget.innerHTML = data.pagination
+        }
+      })
     }
   }
 
