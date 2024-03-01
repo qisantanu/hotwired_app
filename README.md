@@ -29,10 +29,10 @@ This project currently works with:
 
 ### Setup ###
 
-1. bundle install
-2. rails importmap:install
-3. rails turbo:install stimulus:install
-4. rails db:create; db:seed
+1. `bundle install`
+2. `rails importmap:install`
+3. `rails turbo:install stimulus:install`
+4. `rails db:create; db:seed`
 5. Open rails console and run `Developer.insert_fake_data 20`
 
 ## Importmap setup
@@ -50,9 +50,9 @@ This project currently works with:
    ```
 5. You will get some idea in : https://github.com/qisantanu/hotwired_app/pull/24/files
 
-## Additional informations
+## Additional information
 
-### for creating modal controller the command used
+### For creating modal controller the command used
   `rails g stimulus turbomodal`
 
 The controller nme of timulus should be a word like 'notification', 'pagination'
@@ -63,9 +63,21 @@ I have tried with 'notification_scroll' which is not working, may be the snake c
 2. `Notification.bulk_create_for_testing`
 3. `Notification.fake_notification_stream`
 
+
+
+### Features covered
+
+1. Lazy loading using **Hotwire**
+2.  Modal form open for the Create. Update Operation
+3. Custom pagination using **Hotwire**
+4. Sorting the data using **Hotwire**
+5. Integrate **FontAwesome** with the application
+6. Append, Update or Delete from HTML view via the Active record transaction callback
+7. Infinite scroll
+
 ### In-Code Documentation with Yard
 
-This project utilizes [Yard](https://yardoc.org/) for in-code documentation. Yard is a documentation generation tool for Ruby that provides a clean and consistent way to document your code.
+This project utilises [Yard](https://yardoc.org/) for in-code documentation. Yard is a documentation generation tool for Ruby that provides a clean and consistent way to document your code.
 
 #### Setting Up Yard
 
@@ -77,4 +89,4 @@ To generate and view the documentation locally, follow these steps:
 
 #### Additional Yard Configuration
 
-You can customize Yard's behavior by adding a `.yardopts` file in the root of your project. This file can contain various options and flags to control the documentation generation process. Refer to the [Yard documentation](https://yardoc.org/docs/yard/file-format.html) for more details.
+You can customize Yard's behaviour by adding a `.yardopts` file in the root of your project. This file can contain various options and flags to control the documentation generation process. Refer to the [Yard documentation](https://yardoc.org/docs/yard/file-format.html) for more details.
