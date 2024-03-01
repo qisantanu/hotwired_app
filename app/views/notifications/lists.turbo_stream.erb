@@ -1,4 +1,5 @@
 <!-- Not in use at present of this page -->
+<% binding.pry %>
 <%= turbo_stream.append "notifications" do %>
   <%= render partial: 'notifications/notification', collection: @notifications %>
 <% end %>

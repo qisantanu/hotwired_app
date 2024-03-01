@@ -18,7 +18,6 @@ class DevelopersController < ApplicationController
 
   # GET /developers/lists
   def lists
-    sleep 1
     page = params[:page].to_i
     @count = Developer.count
     @first_page = 0
@@ -26,8 +25,16 @@ class DevelopersController < ApplicationController
     @last_page = (@count / Developer::PAGINATION).ceil
     @next_page = page + 1
     @prev_page = (page - 1) <= 0 ? 0 : page - 1
-    @developers = Developer.offset(page * Developer::PAGINATION)
-                           .limit(Developer::PAGINATION).order('id desc')
+    @developers = Developer.all
+
+    if params[:sort_email].present?
+      @developers = @developers.order("email #{params[:sort_email]}")
+    else
+      @developers = @developers.order('id desc')
+    end
+
+    @developers = @developers.offset(page * Developer::PAGINATION)
+                           .limit(Developer::PAGINATION)
   end
 
   # GET /developers/1 or /developers/1.json

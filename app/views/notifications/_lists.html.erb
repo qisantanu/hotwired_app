@@ -1,21 +1,27 @@
-<%= turbo_stream_from 'notifications' %>
+<!-- 
+  This will be rendered from the 
+  Developers#index  -> index.html.erb -> this Partial rendered
+-->
+<% if true %>
+  <%= turbo_stream_from 'notifications' %>
 
-<ul class='notifications-ul' data-controller='pagination' data-pagination-target="notifications-ul"
-  data-pagination-url-value="<%= lists_notifications_url %> "
-  data-pagination-page-value="<%= 2 %>">
+  <ul class='notifications-ul' data-controller='pagination' data-pagination-target="notifications-ul"
+    data-pagination-url-value="<%= lists_notifications_url %> "
+    data-pagination-page-value="<%= 2 %>">
 
-  <%= turbo_frame_tag :notifications do %>
-    <%= render partial: 'notifications/notification', collection: @notifications %>    
-  <% end %>
-
-  <!-- Load more link to show more notifications.
-    here we added a extra parameter to identify in the controller end,
-    that the request is coming from this link.
-    The data turbo stream in the link as set as true.
-    So from the controller, we can determine the next set of notifications
-    and append in the list to the above turbo_frame_tag with 'notifications' id.
-  -->
-  <%= turbo_frame_tag :load_more do %>
-    <%= render partial: 'notifications/load_more', locals: {page: params[:page].to_i} %>
-  <% end %>
-</ul>
+    <%= turbo_frame_tag :notifications do %>
+      <%= render partial: 'notifications/notification', collection: @notifications %>    
+    <% end %>
+    
+    <!-- Load more link to show more notifications.
+      here we added a extra parameter to identify in the controller end,
+      that the request is coming from this link.
+      The data turbo stream in the link as set as true.
+      So from the controller, we can determine the next set of notifications
+      and append in the list to the above turbo_frame_tag with 'notifications' id.
+    -->
+    <%= turbo_frame_tag :load_more do %>
+      <%= render partial: 'notifications/load_more', locals: { page: params[:page].to_i } %>
+    <% end %>
+  </ul>
+<% end %>

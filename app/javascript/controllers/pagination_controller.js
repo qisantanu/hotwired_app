@@ -4,6 +4,7 @@
  */
 
 import { Controller } from "@hotwired/stimulus"
+import $ from "jquery";
 
 // Connects to data-controller="pagination"
 export default class extends Controller {
@@ -65,7 +66,22 @@ export default class extends Controller {
       // Add the spinner at the end of the page.
       //this.postsTarget.insertAdjacentHTML("beforeend", spinner);
 
-      this.#clickLoadMore();
+      let loadMoreURL = $('.load-notification a').attr('href');
+      //$(".load-notification a").html('Loading...');
+      console.log(loadMoreURL);
+
+      //$.get(loadMoreURL);
+      // fetch(loadMoreURL.toString() + '&scroll=true', {
+      //   method: 'GET',
+      //   headers: {
+      //     'Accept': 'text/html;'
+      //   }
+      // }).then((response) => {
+      //   console.log('fetch first block', response.body);
+      // })
+      // .then(res => {
+      //   console.log('fetch last block', res);
+      // })
     }
   }
 
@@ -75,9 +91,10 @@ export default class extends Controller {
    * @instance
    * @private
    */
-  get #clickLoadMore() {
-    document. getElementsByClassName("load-notification")[0].children[0].click();
-    document. getElementsByClassName("load-notification")[0].innerHTML = 'Loading...';
+  clickLoadMore() {
+    console.log('-----------0');
+    $('.load-notification a').trigger('click');
+    $(".load-notification a").html('Loading...');
   }
 
   /**
@@ -122,7 +139,7 @@ export default class extends Controller {
    */
   get #isItPageEnd() {
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-    console.log(scrollHeight - scrollTop - clientHeight);
+    //console.log(scrollHeight - scrollTop - clientHeight);
     return scrollHeight - scrollTop - clientHeight < 50;
   }
 }
