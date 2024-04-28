@@ -21,7 +21,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails", '2.0.4'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -83,3 +83,6 @@ end
 gem "trailblazer", ">= 2.1.0"
 gem "trailblazer-rails"
 gem "pagy", "~> 6.4"
+
+gem 'solid_queue', '0.3.0'
+gem "panoptic", '0.4.2'
