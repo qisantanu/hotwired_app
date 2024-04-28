@@ -10,9 +10,10 @@ This is a Rails application to play with different features of HTML Over the Wir
     - [Setup](#setup)
   - [Importmap setup](#importmap-setup)
     - [Example: Add jQuery to the application](#example-add-jquery-to-the-application)
-  - [Additional informations](#additional-informations)
-    - [for creating modal controller the command used](#for-creating-modal-controller-the-command-used)
+  - [Additional information](#additional-information)
+    - [For creating modal controller the command used](#for-creating-modal-controller-the-command-used)
     - [For creating the fake data](#for-creating-the-fake-data)
+    - [Features covered](#features-covered)
     - [In-Code Documentation with Yard](#in-code-documentation-with-yard)
       - [Setting Up Yard](#setting-up-yard)
       - [Additional Yard Configuration](#additional-yard-configuration)
@@ -26,6 +27,7 @@ This project currently works with:
 ![Rails](https://img.shields.io/static/v1?label=Rails&message=7.1.3&color=9C312A&&style=for-the-badge)
 ![Bundler](https://img.shields.io/static/v1?label=Bundler&message=2.3.4&color=f77b07&&style=for-the-badge)
 ![Postgres Database](https://img.shields.io/static/v1?label=Postgres&message=16&color=green&style=for-the-badge)
+![Solid Queue](https://img.shields.io/static/v1?label=SolidQueue&message=0.3.0&color=red&style=for-the-badge)
 
 ### Setup ###
 
@@ -34,6 +36,7 @@ This project currently works with:
 3. `rails turbo:install stimulus:install`
 4. `rails db:create; db:seed`
 5. Open rails console and run `Developer.insert_fake_data 20`
+6. To run the backend worker: `bundle exec rake solid_queue:start` 
 
 ## Importmap setup
 ### Example: Add jQuery to the application
