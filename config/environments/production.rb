@@ -68,6 +68,8 @@ Rails.application.configure do
 
   config.solid_queue.connects_to = { database: { writing: :queue } }
 
+  config.solid_queue.connects_to = { database: { writing: :queue } }
+
   # config.active_job.queue_name_prefix = "hotwired_app_production"
 
   config.action_mailer.perform_caching = false

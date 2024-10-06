@@ -23,11 +23,11 @@ This is a Rails application to play with different features of HTML Over the Wir
 The following software is required to work with the repository.
 This project currently works with:
 
-![Ruby version](https://img.shields.io/static/v1?label=JRuby&message=3.2.2&color=red&&style=for-the-badge)
-![Rails](https://img.shields.io/static/v1?label=Rails&message=7.1.3&color=9C312A&&style=for-the-badge)
+![Ruby version](https://img.shields.io/static/v1?label=JRuby&message=3.3.2&color=red&&style=for-the-badge)
+![Rails](https://img.shields.io/static/v1?label=Rails&message=7.2.1&color=9C312A&&style=for-the-badge)
 ![Bundler](https://img.shields.io/static/v1?label=Bundler&message=2.3.4&color=f77b07&&style=for-the-badge)
 ![Postgres Database](https://img.shields.io/static/v1?label=Postgres&message=16&color=green&style=for-the-badge)
-![Solid Queue](https://img.shields.io/static/v1?label=SolidQueue&message=0.3.0&color=red&style=for-the-badge)
+![Solid Queue](https://img.shields.io/static/v1?label=SolidQueue&message=1.0.0&color=red&style=for-the-badge)
 
 ### Setup ###
 
@@ -36,7 +36,7 @@ This project currently works with:
 3. `rails turbo:install stimulus:install`
 4. `rails db:create; db:seed`
 5. Open rails console and run `Developer.insert_fake_data 20`
-6. To run the backend worker: `bundle exec rake solid_queue:start` 
+6. To run the backend worker: `bin/jobs` || `bundle exec rake solid_queue:start` 
 
 ## Importmap setup
 ### Example: Add jQuery to the application
