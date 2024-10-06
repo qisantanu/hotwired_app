@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.3.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "7.1.3"
+gem "rails", "7.2.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -15,7 +15,7 @@ gem "pg", "~> 1.1"
 gem 'bcrypt'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "6.4.3"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -57,9 +57,10 @@ gem "font-awesome-sass", "~> 6.5.1"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'pry', '0.14.1'
 end
+
+gem 'faker', '3.4.2'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -84,5 +85,5 @@ gem "trailblazer", ">= 2.1.0"
 gem "trailblazer-rails"
 gem "pagy", "~> 6.4"
 
-gem 'solid_queue', '0.3.0'
-gem "panoptic", '0.4.2'
+gem 'solid_queue', '1.0.0'
+# gem "panoptic" are not supporting 1.0.0
