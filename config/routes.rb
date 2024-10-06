@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # A web view of solid queue
   # mount Panoptic::Engine => "/panoptic"
+  mount MissionControl::Jobs::Engine, at: "/jobs"
+
   
   resources :developers do
     member do

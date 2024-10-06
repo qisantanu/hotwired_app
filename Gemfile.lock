@@ -144,6 +144,13 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.1)
+    mission_control-jobs (0.3.2)
+      importmap-rails
+      irb (~> 1.13)
+      propshaft
+      rails (>= 7.1)
+      stimulus-rails
+      turbo-rails
     msgpack (1.7.3)
     net-imap (0.4.16)
       date
@@ -159,6 +166,11 @@ GEM
       racc (~> 1.4)
     pagy (6.5.0)
     pg (1.5.8)
+    propshaft (1.1.0)
+      actionpack (>= 7.0.0)
+      activesupport (>= 7.0.0)
+      rack
+      railties (>= 7.0.0)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -326,6 +338,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.5.1)
   importmap-rails
   jbuilder
+  mission_control-jobs
   pagy (~> 6.4)
   pg (~> 1.1)
   pry (= 0.14.1)

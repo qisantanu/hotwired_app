@@ -43,14 +43,19 @@ class Notification < ApplicationRecord
   end
 
   def self.fake_notification_stream
-    Notification.fake_notification
-    Notification.fake_notification
-    Notification.second.update(status: STATUS[:read])
-    Notification.first.destroy
-    Notification.last.destroy
-    Notification.first.update(status: STATUS[:read])
+    notif = Notification.fake_notification
+    notif_other = Notification.fake_notification
+    notif_other.update(status: STATUS[:read])
+    notif.update(status: STATUS[:read])
     Notification.fake_notification
     Notification.last.update(status: STATUS[:read])
+    Notification.fake_notification
+  end
+
+  def self.delete_random_notification
+    (0..rand(10)).each do |i|
+      Notification.find(Notification.pluck(:id).sample).destroy
+    end
   end
 
   def self.bulk_create_for_testing
