@@ -12,4 +12,8 @@ development:
   a_periodic_job:
     class: SendNotificationJob
     queue: background
-    schedule: every 15 seconds
+    schedule: every 5 seconds
+  b_periodic_job:
+    class: DeleteNotificationJob
+    queue: cleanup_queue
+    schedule: every 20 seconds

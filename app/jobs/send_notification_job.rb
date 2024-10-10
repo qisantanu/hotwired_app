@@ -7,6 +7,7 @@ class SendNotificationJob < ApplicationJob
   self.queue_adapter = :solid_queue
 
   def perform
+    Rails.logger.info("Starting SendNotificationJob @ #{Time.now}")
     Notification.fake_notification_stream
   end
 end
