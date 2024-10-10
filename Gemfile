@@ -7,7 +7,7 @@ ruby "3.3.2"
 gem "rails", "7.2.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -87,4 +87,5 @@ gem "pagy", "~> 6.4"
 
 gem 'solid_queue', '1.0.0'
 gem "mission_control-jobs"
+# gem "propshaft"
 # gem "panoptic" are not supporting 1.0.0

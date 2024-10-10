@@ -5,8 +5,9 @@
 #
 class DeleteNotificationJob < ApplicationJob
   self.queue_adapter = :solid_queue
-
+  
   def perform
+    Rails.logger.info("Starting DeleteNotificationJob @ #{Time.now}")
     Notification.delete_random_notification
   end
 end

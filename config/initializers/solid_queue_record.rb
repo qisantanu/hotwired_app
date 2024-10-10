@@ -5,4 +5,13 @@ ActiveSupport.on_load(:solid_queue_record) do
   Rails.application.config.x.solid_queue_record_hook_ran = true
 end
 
-SolidQueue.on_start { puts 1 }
+SolidQueue.on_start { process_something_on_start }
+SolidQueue.on_stop { process_something_on_finish }
+
+def process_something_on_start
+  Rails.logger.info("The Solid Queue has been started at:#{Time.now} ")
+end
+
+def process_something_on_finish
+  Rails.logger.info("The Solid Queue has been finished at:#{Time.now} ")
+end
