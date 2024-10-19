@@ -17,3 +17,7 @@ development:
     class: DeleteNotificationJob
     queue: cleanup_queue
     schedule: every 20 seconds
+  c_periodic_job:
+    class: DeleteFinishedSolidQueueJob
+    queue: cleanup_queue
+    schedule: at 2am every day 

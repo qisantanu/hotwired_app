@@ -87,3 +87,4 @@ gem "pagy", "~> 6.4"
 
 gem 'solid_queue', '1.0.0'
 # gem "panoptic" are not supporting 1.0.0
+gem 'mission_control-jobs'
