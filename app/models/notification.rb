@@ -44,9 +44,9 @@ class Notification < ApplicationRecord
 
   def self.fake_notification_stream
     notif = Notification.fake_notification
-    notif_other = Notification.fake_notification
-    notif_other.update(status: STATUS[:read])
+    notif_other =Notification.fake_notification
     notif.update(status: STATUS[:read])
+    notif_other.update(status: STATUS[:read])
     Notification.fake_notification
     Notification.last.update(status: STATUS[:read])
     Notification.fake_notification

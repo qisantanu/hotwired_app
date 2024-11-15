@@ -15,3 +15,5 @@ end
 def process_something_on_finish
   Rails.logger.info("The Solid Queue has been finished at:#{Time.now} ")
 end
+
+Rails.application.config.clear_finished_jobs_after = 7.days

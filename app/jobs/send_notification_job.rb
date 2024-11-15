@@ -5,6 +5,7 @@
 #
 class SendNotificationJob < ApplicationJob
   self.queue_adapter = :solid_queue
+  self.queue_name = :background
 
   def perform
     Rails.logger.info("Starting SendNotificationJob @ #{Time.now}")

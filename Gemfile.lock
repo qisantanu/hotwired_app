@@ -144,10 +144,9 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.1)
-    mission_control-jobs (0.3.2)
+    mission_control-jobs (0.3.3)
       importmap-rails
       irb (~> 1.13)
-      propshaft
       rails (>= 7.1)
       stimulus-rails
       turbo-rails
@@ -166,11 +165,6 @@ GEM
       racc (~> 1.4)
     pagy (6.5.0)
     pg (1.5.8)
-    propshaft (1.1.0)
-      actionpack (>= 7.0.0)
-      activesupport (>= 7.0.0)
-      rack
-      railties (>= 7.0.0)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -348,6 +342,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   solid_queue (= 1.0.0)
+  sprockets-rails
   stimulus-rails
   trailblazer (>= 2.1.0)
   trailblazer-rails
