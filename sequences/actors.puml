@@ -1,0 +1,35 @@
+@startuml
+  title SolidQueue Actors
+  Actor Scheduler as s #Brown/White
+  Actor Dispatcher as d #Red/Yellow
+  Actor Worker as w #A1CDA0/5299b6
+  Actor Supervisor as sv #A1CDA0/LightYellow
+
+sv->sv: Runs the whole system
+
+note left of sv #FCFBDD
+  1. Read the configuration
+  2. **<color purple>Runs</color>** workers and dispatchers
+  3. **<color purple>Controls</color>** their heartbeats, 
+  4. stops and starts them when needed.
+  5. **<color purple>Handling job failures:</color>** 
+     The supervisor can re-queue failed jobs for retry
+  6. **<color purple>Managing job retries:</color>** 
+     If a job fails during execution, the supervisor can decide whether and when to retry the job.
+end note
+
+s->s: manages recurring tasks, enqueuing jobs for them when they're due.
+d->w: Identify jobs scheduled to run in the future that are due and dispatching them
+note left of d #FCFBDD
+  Dispatcher is polling but for scheduled jobs
+end note
+
+note left of w #DeepSkyBlue
+  Polling for Ready execution table
+  Move them from 
+  the solid_queue_scheduled_executions table 
+  over to the solid_queue_ready_executions table
+  so that workers can pick them up.
+end note
+
+

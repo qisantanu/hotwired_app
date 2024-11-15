@@ -36,7 +36,10 @@ This project currently works with:
 3. `rails turbo:install stimulus:install`
 4. `rails db:create; db:seed`
 5. Open rails console and run `Developer.insert_fake_data 20`
-6. To run the backend worker: `bin/jobs` || `bundle exec rake solid_queue:start` 
+6. Solid Queue is configured by default in new Rails 8 applications. But if you're running an earlier version, you can add it manually following these steps:
+ - `bundle add solid_queue`
+ - `bin/rails solid_queue:install`
+7. To run the backend worker: `bin/jobs` || `bundle exec rake solid_queue:start` 
 
 ## Importmap setup
 ### Example: Add jQuery to the application
