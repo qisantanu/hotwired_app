@@ -23,11 +23,11 @@ This is a Rails application to play with different features of HTML Over the Wir
 The following software is required to work with the repository.
 This project currently works with:
 
-![Ruby version](https://img.shields.io/static/v1?label=JRuby&message=3.3.2&color=red&&style=for-the-badge)
-![Rails](https://img.shields.io/static/v1?label=Rails&message=7.2.1&color=9C312A&&style=for-the-badge)
+![Ruby version](https://img.shields.io/static/v1?label=JRuby&message=3.3.6&color=red&&style=for-the-badge)
+![Rails](https://img.shields.io/static/v1?label=Rails&message=8.0.0&color=9C312A&&style=for-the-badge)
 ![Bundler](https://img.shields.io/static/v1?label=Bundler&message=2.3.4&color=f77b07&&style=for-the-badge)
 ![Postgres Database](https://img.shields.io/static/v1?label=Postgres&message=16&color=green&style=for-the-badge)
-![Solid Queue](https://img.shields.io/static/v1?label=SolidQueue&message=1.0.0&color=red&style=for-the-badge)
+![Solid Queue](https://img.shields.io/static/v1?label=SolidQueue&message=1.0.2&color=red&style=for-the-badge)
 
 ### Setup ###
 
