@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.2"
+ruby "3.3.6"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 8.0.0'
@@ -85,6 +85,6 @@ gem "trailblazer", ">= 2.1.0"
 gem "trailblazer-rails"
 gem "pagy", "~> 6.4"
 
-gem 'solid_queue', '1.0.0'
+gem 'solid_queue', '1.0.2'
 # gem "panoptic" are not supporting 1.0.0
-gem 'mission_control-jobs'
+gem 'mission_control-jobs', '0.6.0'
