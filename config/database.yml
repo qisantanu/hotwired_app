@@ -68,4 +68,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  url: postgresql://postgres:postgres@localhost:5432/hotwired_app_development?encoding=utf8&pool=5&timeout=5000
