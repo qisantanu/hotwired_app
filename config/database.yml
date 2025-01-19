@@ -35,6 +35,10 @@ development:
       <<: *default
       url: <%= ENV['DATABASE_URL'] %>
       migrations_paths: db/queue_migrate #: NB: For SQLITE3
+  # cable:
+  #     <<: *default
+  #     url: <%= ENV['DATABASE_URL'] %>
+  #     migrations_path: db/cable_migrate
 
   # The password associated with the postgres role (username).
   #password:
