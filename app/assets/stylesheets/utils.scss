@@ -49,13 +49,16 @@ table .td-actions, table .button_to {
 }
 
 .time-section {
-  display: flex;
+  display: block;
+  background-color: #0e2d43;
   
   .time {
-    background-color: blue;
-    box-shadow: -5px 6px rgba(193, 193, 242, 0.999);
+    // background-color: blue;
+    // box-shadow: -2px 3px rgba(193, 193, 242, 0.999);
     color: #fefefe;
+    text-align: right;
     border-radius: 5px;
+    font-size: 10px;
     padding: 5px 10px;
     margin-left: auto;
     margin-top: 10px
