@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-if Rails.env.production?
+if Rails.env.development?
   Dotenv.load '.env.dev'
 end
 

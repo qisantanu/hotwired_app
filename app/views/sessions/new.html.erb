@@ -1,17 +1,17 @@
 <div class='signin-section'>
-  <h1>Sign in</h1>
-
+  <header class="signin-section_header">
+    <h4>Welcome back!</h4>
+    <p class="user-login-block_info">Enter your informations below to login</p>
+  </header>
   <%= form_tag signin_path do %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-    <%= label_tag :password %>
+    <%= email_field_tag :email, nil, placeholder: 'Enter your email' %>
     
     <div data-controller="password-visibility">
       <input type="password" data-password-visibility-target="input" name="password" id="password" />
 
       <button type="button" data-action="password-visibility#toggle">
-        <span data-password-visibility-target="icon">Eye</span>
-        <span data-password-visibility-target="icon" class="hidden">Eye Slash</span>
+        <span data-password-visibility-target="icon" class="icon-eye"></span>
+        <span data-password-visibility-target="icon" class="hidden icon-eye-slash"></span>
       </button>
     </div>
     <%= submit_tag "Sign in" %>

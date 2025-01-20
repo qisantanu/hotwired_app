@@ -1,4 +1,119 @@
 .signin-section {
-  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
+  background-color: #1A2934;
+  height: 100vh;
+
+  &_header {
+    margin-top: 10px;
+    margin-left: 14px;
+    color: #fefefe;
+    font-size: 16px;
+    
+    p {
+      font-size: 14px;
+    }
+  }
+
+  form {
+    background-color: #fff;
+    border-radius: 1em 1em 0 0;
+    height: calc(100vh - 12em);
+    padding: 2.5em 2em;
+
+  }
+
+  [data-controller="password-visibility"] {
+    display: flex;
+    align-items: center;
+  }
+
+  [data-password-visibility-target="input"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+  }
+
+  /* Button styling */
+  [data-controller="password-visibility"] button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+  }
+
+/* Icon styling */
+  [data-password-visibility-target="icon"] {
+    font-size: 16px;
+    color: #666;
+    margin-left: 4px;
+  }
+
+/* Hide the second icon initially */
+  [data-password-visibility-target="icon"].hidden {
+    display: none;
+  }
+
+/* Add hover and focus styles for accessibility */
+  [data-controller="password-visibility"] button:hover,
+  [data-controller="password-visibility"] button:focus {
+    color: #000;
+  }
+
+  /* Button focus outline */
+  [data-controller="password-visibility"] button:focus {
+    // outline: 2px solid #a1a5ab;
+    // outline-offset: 2px;
+  }
+
+  .icon-eye {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 12px;
+    background: transparent;
+    border: 2px solid #666;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  .icon-eye::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: #666;
+    border-radius: 50%;
+  }
+  
+  /* Eye Slash Icon */
+  .icon-eye-slash {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 12px;
+    background: transparent;
+    border: 2px solid #666;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+  
+  /* Eye Slash Line */
+  .icon-eye-slash::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    width: 32px;
+    height: 2px;
+    background: #666;
+    transform: rotate(-45deg);
+  }
 }
