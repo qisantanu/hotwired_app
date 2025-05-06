@@ -1,7 +1,6 @@
 .notifications-ul {
   height: 800px;
   overflow: auto;
-  //border: 1px solid #d53a3a;
 }
 
 .load-notification {
